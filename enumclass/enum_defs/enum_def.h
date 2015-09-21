@@ -19,14 +19,20 @@ std::map<std::string, ENUM_TYPE> Enumer<ENUM_TYPE>::Map = {
     {"", static_cast<ENUM_TYPE>(0)}
 };
 
-std::ostream & operator << (ostream &os, const ENUM_TYPE &obj){
+std::ostream & operator << (std::ostream &os, const ENUM_TYPE &obj){
     os << Enumer<ENUM_TYPE>::Array[static_cast<int>(obj)];
     return os;
 }
 
-std::istream & operator >> (istream &is, ENUM_TYPE &obj){
+std::istream & operator >> (std::istream &is, ENUM_TYPE &obj){
     string tmp;
     is >> tmp;
-    obj = Enumer<ENUM_TYPE>::Map[tmp];
+    try{
+        obj = Enumer<ENUM_TYPE>::Map.at(tmp);
+    } catch (std::out_of_range &err){
+        std::cerr << "Illegal Enum input, Enum Class:" << ENUM_STR(ENUM_TYPE) << " , input: " << tmp << std::endl
+				  << err.what() << std::endl;
+		obj = static_cast<ENUM_TYPE>(0);
+    }
     return is;
 }

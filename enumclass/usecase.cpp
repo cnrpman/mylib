@@ -12,7 +12,7 @@ using namespace std;
 int main(int argc, char * argv[]){
     ENUM_TYPE tmp;
     cout << Enumer<Plane_cate>::Array[2] << endl;
-    cout << (Enumer<Plane_cate>::Map["B"]) << endl;
+    cout << (Enumer<Plane_cate>::Map["Bomber"]) << endl;
     cin >> tmp;
     cout << tmp;
     return 0;

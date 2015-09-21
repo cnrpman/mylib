@@ -3,6 +3,11 @@
 
 #include <map>
 #include <string>
+#include <iostream>
+#include <stdexcept>
+
+#define ENUM_STR(a) ENUM_STR_(a)
+#define ENUM_STR_(a) #a
 
 template<typename Enum_type>
 struct Enumer{
