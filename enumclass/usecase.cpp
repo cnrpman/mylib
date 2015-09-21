@@ -9,8 +9,11 @@ using namespace std;
 #include "enum_defs/enumer.h"
 #include "enum_defs/enum_def.h"
 
-int main(void){
+int main(int argc, char * argv[]){
+    ENUM_TYPE tmp;
     cout << Enumer<Plane_cate>::Array[2] << endl;
-    cout << static_cast<int>(Enumer<Plane_cate>::Map["Bomber"]) << endl;
+    cout << (Enumer<Plane_cate>::Map["B"]) << endl;
+    cin >> tmp;
+    cout << tmp;
     return 0;
 }
